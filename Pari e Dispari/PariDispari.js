@@ -1,7 +1,16 @@
-// funzione numero random
+// funzione per generare un numero random
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+// funzione per determinare se la somma è pari o dispari
+function evenOrOdd(num1, num2){
+    if ((num1 + num2) % 2 === 0){
+        return 'pari';
+    }
+    return 'dispari';
+}
+
 let computerNumber = getRandomNumber(1, 5);
 
 //Scelta utente tra pari o dispari
@@ -21,8 +30,8 @@ while (userChoice != 'pari' && userChoice != 'dispari') {
 }
 console.log(`Hai puntato su: ${userChoice}`);
 
-// utente sceglie il numero
-let userNumber = parseInt(prompt('Il rischio è la vera essenza del piacere… è arrivato il momento di scegliere un numero tra 1 e 5'))
+// utente sceglie il suo numero
+let userNumber = parseInt(prompt('Il rischio è la vera essenza del piacere… è arrivato il momento di scegliere un numero tra 1 e 5'));
 
 while (userNumber > 5 || userNumber < 1 || isNaN(userNumber)) {
     for (let i = 0; i < 3; i++) {
@@ -37,5 +46,14 @@ while (userNumber > 5 || userNumber < 1 || isNaN(userNumber)) {
     }
 }
 
-console.log(`Stai puntando tutto sul numero ${userNumber}`)
-console.log(`Il banco rivela la sua puntata ${computerNumber}`)
+console.log(`Stai puntando tutto sul numero ${userNumber}`);
+console.log(`Il banco rivela la sua puntata ${computerNumber}`);
+
+let somma = evenOrOdd(userNumber, computerNumber);
+if (somma === userChoice) {
+    alert(`Sembra che la fortuna ti abbia sorriso... questa volta. Vince ${somma}`)
+    console.log(`Sembra che la fortuna ti abbia sorriso... questa volta. Vince ${somma}`)
+} else {
+    alert(`Oh… che delusione. Il banco sorride, e tu… hai perso. Vince ${somma}`)
+    console.log(`Oh… che delusione. Il banco sorride, e tu… hai perso. Vince ${somma}`)
+}
