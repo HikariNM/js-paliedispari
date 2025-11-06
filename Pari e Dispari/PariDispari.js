@@ -11,7 +11,12 @@ function evenOrOdd(num1, num2){
     return 'dispari';
 }
 
-let computerNumber = getRandomNumber(1, 5);
+// funzione scelta random tra pari o dispari
+function userRandomChoice() {
+    const randomChoice = ['pari', 'dispari']
+    let i = Math.floor(Math.random() * randomChoice.length)
+    return randomChoice[i]
+}
 
 //Scelta utente tra pari o dispari
 let userChoice = prompt('Ti senti fortunato, o stai solo bluffando? Dimmi… pari o dispari?');
@@ -23,8 +28,8 @@ while (userChoice != 'pari' && userChoice != 'dispari') {
         if (userChoice === 'pari' || userChoice === 'dispari'){
             break;
         } else if(i === 2) {
-            alert('Tempo scaduta... la tua puntata sarà dispari');
-            userChoice = 'dispari';
+            alert('Tempo scaduto... la tua puntata sarà dispari');
+            userChoice = userRandomChoice();
         }
     }
 }
@@ -33,11 +38,11 @@ console.log(`Hai puntato su: ${userChoice}`);
 // utente sceglie il suo numero
 let userNumber = parseInt(prompt('Il rischio è la vera essenza del piacere… è arrivato il momento di scegliere un numero tra 1 e 5'));
 
-while (userNumber > 5 || userNumber < 1 || isNaN(userNumber)) {
+while (userNumber > 5 || userNumber < 1 || isNaN(userNumber) || userNumber === '') {
     for (let i = 0; i < 3; i++) {
-        userNumber = prompt('Le opzioni sono poche, ma il rischio è infinito. Sfruttalo bene');
+        userNumber = parseInt(prompt('Le opzioni sono poche, ma il rischio è infinito. Sfruttalo bene'));
 
-        if (userNumber > 0 || userNumber <= 5){
+        if (userNumber > 0 && userNumber <= 5){
             break
         } else if (i === 2) {
             alert('Tempo scaduto... il banco ha deciso al posto tuo');
@@ -47,8 +52,12 @@ while (userNumber > 5 || userNumber < 1 || isNaN(userNumber)) {
 }
 
 console.log(`Stai puntando tutto sul numero ${userNumber}`);
+
+// scelta numero computer
+let computerNumber = getRandomNumber(1, 5);
 console.log(`Il banco rivela la sua puntata ${computerNumber}`);
 
+// somma numeri scelti e controllo
 let somma = evenOrOdd(userNumber, computerNumber);
 if (somma === userChoice) {
     alert(`Sembra che la fortuna ti abbia sorriso... questa volta. Vince ${somma}`)
