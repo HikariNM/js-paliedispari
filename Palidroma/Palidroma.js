@@ -1,21 +1,19 @@
-// function checkPalindrome(string){
-//     const wordArray = userWord.split('');
-//     const reverseWordArray = wordArray.reverse();
-//     const backToString = reverseWordArray.join('');
+function checkPalindrome(string){
+    const backToString = userWord.split('').reverse().join('');
 
-//     if( userWord === backToString){
-//         console.log('Affascinante… la parola si specchia e resta identica. Che equilibrio perfetto')
-//         alert('Affascinante… la parola si specchia e resta identica. Che equilibrio perfetto')
-//     }
-//     else {
-//         console.log('Ah… peccato. Questa parola non ha il coraggio di guardarsi allo specchio')
-//         alert('Ah… peccato. Questa parola non ha il coraggio di guardarsi allo specchio')
-//     }
-// }
+    if( userWord === backToString){
+        console.log('Affascinante… la parola si specchia e resta identica. Che equilibrio perfetto')
+        return 'Affascinante… la parola si specchia e resta identica. Che equilibrio perfetto'
+    }
+    else {
+        console.log('Ah… peccato. Questa parola non ha il coraggio di guardarsi allo specchio')
+        return 'Ah… peccato. Questa parola non ha il coraggio di guardarsi allo specchio'
+    }
+}
 
-// const userWord = prompt('Inserisci una parola… vediamo se saprà riflettersi da sola')
-// console.log(`${userWord}... scelta audace`)
-// checkPalindrome(userWord);
+const userWord = prompt('Inserisci una parola… vediamo se saprà riflettersi da sola')
+console.log(`${userWord}... scelta audace`)
+alert(checkPalindrome(userWord));
 
 
 
@@ -33,5 +31,4 @@ function checkPalindromeWithLoop(string){
 
 const userWord = prompt('Inserisci una parola… vediamo se saprà riflettersi da sola')
 console.log(`${userWord}... scelta audace`)
-
 alert(checkPalindromeWithLoop(userWord));
