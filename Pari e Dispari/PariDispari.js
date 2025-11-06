@@ -27,10 +27,12 @@ while (userChoice != 'pari' && userChoice != 'dispari') {
 
         if (userChoice === 'pari' || userChoice === 'dispari'){
             break;
-        } else if(i === 2) {
-            alert('Tempo scaduto... la tua puntata sarà dispari');
-            userChoice = userRandomChoice();
         }
+        else if(i === 2) {
+            userChoice = userRandomChoice();
+            alert(`Tempo scaduto... la tua puntata sarà ${userChoice}`);
+        }
+        
     }
 }
 console.log(`Hai puntato su: ${userChoice}`);
